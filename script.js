@@ -11,6 +11,18 @@ function addTask(){
         li.innerHTML = input.value;
         tasks.appendChild(li);
         input.value = ""; 
+        let span = document.createElement("span");
+        span.innerHTML = "X";
+        li.appendChild(span);
     }
 
 }
+
+tasks.addEventListener("click", function(e){
+    if(e.target.tagName === "LI"){
+        e.target.classList.toggle("checked");
+    }
+    if(e.target.tagName === "SPAN"){
+        e.target.parentElement.remove();
+    }
+});
